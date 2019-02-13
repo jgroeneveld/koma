@@ -1,12 +1,12 @@
 package de.jgroeneveld.koma
 
+import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RestController
 
-@RestController
+@Controller
 class RootController {
     @GetMapping("/")
-    fun index() : String {
-        return "Hello"
+    fun index(): String {
+        return "index.html"
     }
 }
