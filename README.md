@@ -14,6 +14,8 @@ An application that can manage your recipes in Markdown Form, creating shopping 
 
 Beginning Phase
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/jgroeneveld/koma.svg?columns=all)](https://waffle.io/jgroeneveld/koma)
+
 ## Why Markdown
 
 I was tired on heaving to put recipes into special formats for managing applications. Markdown allows some form of portability. At least you do not have to "get your data out".
