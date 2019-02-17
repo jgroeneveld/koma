@@ -1,2 +1,4 @@
 * linguist-vendored
 *.kt linguist-vendored=false
+*.tsx linguist-vendored=false
+*.css linguist-vendored=false
