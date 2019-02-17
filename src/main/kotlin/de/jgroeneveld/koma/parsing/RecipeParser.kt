@@ -2,9 +2,9 @@ package de.jgroeneveld.koma.parsing
 
 import com.vladsch.flexmark.parser.Parser
 import com.vladsch.flexmark.util.options.MutableDataSet
-import de.jgroeneveld.koma.parsing.partparsers.IngredientsParser
+import de.jgroeneveld.koma.parsing.partparsers.IngredientsBlockParser
 import de.jgroeneveld.koma.parsing.partparsers.PartParser
-import de.jgroeneveld.koma.parsing.partparsers.StepsParser
+import de.jgroeneveld.koma.parsing.partparsers.StepsBlockParser
 import de.jgroeneveld.koma.parsing.partparsers.TitleParser
 import java.io.Reader
 
@@ -17,7 +17,7 @@ class RecipeParser {
         val document = parser.parseReader(reader)
 
         var node = document.firstChild
-        val partParsers: List<PartParser> = listOf(TitleParser(), IngredientsParser(), StepsParser())
+        val partParsers: List<PartParser> = listOf(TitleParser(), IngredientsBlockParser(), StepsBlockParser())
 
         while (node != null) {
             val partParser = partParsers.find { partParser -> partParser.startParsing(node) }

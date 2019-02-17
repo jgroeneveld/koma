@@ -11,7 +11,7 @@ class RecipeParserTest {
     val recipeText = "# Brot\n Ein leckeres Brot\n## Zutaten\n- Mehl\n- Eier\n### Optional\n- Hafer\n- Nüsse\n## Zubereitung\n1. Mischen\n2. Backen"
 
     @Test
-    fun testParse() {
+    fun parse() {
         val reader: Reader = StringReader(recipeText)
 
         val parsedRecipe = RecipeParser().parse(reader)
