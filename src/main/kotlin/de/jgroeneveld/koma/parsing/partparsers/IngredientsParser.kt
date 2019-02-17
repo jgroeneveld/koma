@@ -9,6 +9,6 @@ class IngredientsParser : BlockParser(headingLevel = 2, headingText = "Zutaten")
     }
 
     override fun processFullBlock(result: ParsedRecipe, fullBlock: String) {
-        result.ingredientsMk = fullBlock
+        result.ingredientsMd = fullBlock
     }
 }

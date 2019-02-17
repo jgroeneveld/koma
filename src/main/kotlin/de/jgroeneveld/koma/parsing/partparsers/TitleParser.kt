@@ -14,11 +14,11 @@ class TitleParser : PartParser() {
 
         var node: Node? = startNode.next
         while (node != null && !(node is Heading && node.level <= 2)) {
-            result.descriptionMk += "${node.chars}\n"
+            result.descriptionMd += "${node.chars}\n"
             node = node.next
         }
 
-        result.descriptionMk = result.descriptionMk.trim()
+        result.descriptionMd = result.descriptionMd.trim()
 
         return node
     }

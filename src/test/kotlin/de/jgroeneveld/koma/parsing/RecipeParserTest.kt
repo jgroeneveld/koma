@@ -17,14 +17,25 @@ class RecipeParserTest {
         val parsedRecipe = RecipeParser().parse(reader)
 
         Assertions.assertThat(parsedRecipe.title).isEqualTo("Brot")
-        Assertions.assertThat(parsedRecipe.descriptionMk).isEqualTo("Ein leckeres Brot")
-        Assertions.assertThat(parsedRecipe.ingredientsMk).isEqualTo("- Mehl\n" +
+        Assertions.assertThat(parsedRecipe.descriptionMd).isEqualTo("Ein leckeres Brot")
+        Assertions.assertThat(parsedRecipe.ingredientsMd).isEqualTo("- Mehl\n" +
                 "- Eier\n" +
                 "\n" +
                 "### Optional\n" +
                 "- Hafer\n" +
                 "- Nüsse")
-        Assertions.assertThat(parsedRecipe.stepsMk).isEqualTo("1. Mischen\n" +
+        Assertions.assertThat(parsedRecipe.stepsMd).isEqualTo("1. Mischen\n" +
                 "2. Backen")
+
+        // TODO extracted ingredients
+//        Assertions.assertThat(parsedRecipe.ingredients).isEqualTo(???)
+
+        // TODO Footer
+//        Assertions.assertThat(parsedRecipe.footerMd).isEqualTo("???")
+
+        // TODO meta info
+//        Assertions.assertThat(parsedRecipe.id).isEqualTo(???)
+//        Assertions.assertThat(parsedRecipe.tags).isEqualTo(???)
+
     }
 }
