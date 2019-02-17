@@ -11,7 +11,6 @@ class RecipeController {
 
     @GetMapping("/api/recipes")
     fun listRecipes(): Iterable<Recipe> {
-        RecipeParser().parse()
         return RecipeRepository().findAll()
     }
 

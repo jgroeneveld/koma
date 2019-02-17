@@ -18,6 +18,8 @@ class TitleParser : PartParser() {
             node = node.next
         }
 
+        result.descriptionMk = result.descriptionMk.trim()
+
         return node
     }
 }

@@ -19,7 +19,7 @@ abstract class BlockParser(val headingLevel: Int, val headingText: String) : Par
             node = node.next
         }
 
-        processFullBlock(result, blockText)
+        processFullBlock(result, blockText.trim())
         return node
     }
 
