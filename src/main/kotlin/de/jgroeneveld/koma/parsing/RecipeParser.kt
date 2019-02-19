@@ -10,7 +10,7 @@ import java.io.Reader
 
 class RecipeParser {
     fun parse(reader: Reader): ParsedRecipe {
-        val parsedRecipe = ParsedRecipe()
+        var parsedRecipe = ParsedRecipe()
 
         val options = MutableDataSet()
         val parser = Parser.builder(options).build()
@@ -20,10 +20,14 @@ class RecipeParser {
         val partParsers: List<PartParser> = listOf(TitleParser(), IngredientsBlockParser(), StepsBlockParser())
 
         while (node != null) {
-            val partParser = partParsers.find { partParser -> partParser.startParsing(node) }
-            when (partParser) {
-                null -> node = node.next
-                else -> node = partParser.parse(parsedRecipe, node)
+            val partParser = partParsers.find { it.startParsing(node) }
+
+            if (partParser == null) {
+                node = node.next
+            } else {
+                val pair = partParser.parse(parsedRecipe, node)
+                parsedRecipe = pair.first
+                node = pair.second
             }
         }
 

@@ -9,17 +9,23 @@ class TitleParser : PartParser() {
         return node is Heading && node.level == 1
     }
 
-    override fun parse(result: ParsedRecipe, startNode: Node): Node? {
-        result.title = startNode.childChars.toString()
+    override fun parse(result: ParsedRecipe, startNode: Node): Pair<ParsedRecipe, Node?> {
+        val title = startNode.childChars.toString()
 
+        var descriptionMd = ""
         var node: Node? = startNode.next
         while (node != null && !(node is Heading && node.level <= 2)) {
-            result.descriptionMd += "${node.chars}\n"
+            descriptionMd += "${node.chars}\n"
             node = node.next
         }
+        descriptionMd = descriptionMd.trim()
 
-        result.descriptionMd = result.descriptionMd.trim()
+        val recipe = result.copy(
+                title = title,
+                descriptionMd = descriptionMd
 
-        return node
+        )
+
+        return Pair(recipe, node)
     }
 }

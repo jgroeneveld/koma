@@ -10,5 +10,5 @@ abstract class PartParser {
     // parse parses the node and iterates until it is finished.
     // Results are written into result
     // Returns the next Node.
-    abstract fun parse(result: ParsedRecipe, startNode: Node): Node?
+    abstract fun parse(result: ParsedRecipe, startNode: Node): Pair<ParsedRecipe, Node?>
 }

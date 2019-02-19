@@ -10,19 +10,22 @@ abstract class BlockParser(val headingLevel: Int, val headingText: String) : Par
         return node is Heading && node.level == headingLevel && node.childChars.toString() == headingText
     }
 
-    override fun parse(result: ParsedRecipe, startNode: Node): Node? {
+    override fun parse(result: ParsedRecipe, startNode: Node): Pair<ParsedRecipe, Node?> {
+        var recipe = result
+
         var node: Node? = startNode.next
         var blockText = ""
+
         while (node != null && !(node is Heading && node.level <= headingLevel)) {
             blockText += "${node.chars}\n"
-            processLine(result, node)
+            recipe = processLine(recipe, node)
             node = node.next
         }
 
-        processFullBlock(result, blockText.trim())
-        return node
+        recipe = processFullBlock(recipe, blockText.trim())
+        return Pair(recipe, node)
     }
 
-    abstract fun processLine(result: ParsedRecipe, node: Node)
-    abstract fun processFullBlock(result: ParsedRecipe, fullBlock: String)
+    abstract fun processLine(result: ParsedRecipe, node: Node): ParsedRecipe
+    abstract fun processFullBlock(result: ParsedRecipe, fullBlock: String): ParsedRecipe
 }

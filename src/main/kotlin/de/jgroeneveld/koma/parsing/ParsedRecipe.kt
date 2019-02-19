@@ -3,13 +3,13 @@ package de.jgroeneveld.koma.parsing
 import de.jgroeneveld.koma.recipes.entity.Ingredient
 
 data class ParsedRecipe(
-        var title: String = "",
-        var descriptionMd: String = "",
-        var ingredientsMd: String = "",
-        var stepsMd: String = "",
-        var footerMd: String = "",
+        val title: String = "",
+        val descriptionMd: String = "",
+        val ingredientsMd: String = "",
+        val stepsMd: String = "",
+        val footerMd: String = "",
 
-        var id: String? = null,
-        var tags: Iterable<String> = listOf(),
-        var ingredients: Iterable<Ingredient>? = listOf()
+        val id: String? = null,
+        val tags: Iterable<String> = listOf(),
+        val ingredients: Iterable<Ingredient>? = listOf()
 )
