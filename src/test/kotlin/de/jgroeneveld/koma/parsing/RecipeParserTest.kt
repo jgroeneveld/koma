@@ -28,13 +28,5 @@ class RecipeParserTest {
         Assertions.assertThat(parsedRecipe.ingredients).hasSize(2)
         Assertions.assertThat(parsedRecipe.ingredients).contains(Ingredient(250F, Quantity.G, "Mehl"))
         Assertions.assertThat(parsedRecipe.ingredients).contains(Ingredient(3F, Quantity.Pieces, "Eier"))
-
-        // TODO Footer
-//        Assertions.assertThat(parsedRecipe.footerMd).isEqualTo("???")
-
-        // TODO meta info
-//        Assertions.assertThat(parsedRecipe.id).isEqualTo(???)
-//        Assertions.assertThat(parsedRecipe.tags).isEqualTo(???)
-
     }
 }
