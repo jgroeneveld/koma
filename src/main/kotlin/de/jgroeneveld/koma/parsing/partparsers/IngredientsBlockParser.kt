@@ -6,11 +6,11 @@ import de.jgroeneveld.koma.parsing.ParsedRecipe
 import de.jgroeneveld.koma.parsing.ingredientparsing.IngredientParser
 import de.jgroeneveld.koma.recipes.entity.Ingredient
 
-class IngredientsBlockParser : BlockParser(headingLevel = 2, headingText = "Zutaten") {
+class IngredientsBlockParser : NamedBlockParser(headingText = "Zutaten") {
     val ingredientParser = IngredientParser()
     val parsedIngredients = mutableListOf<Ingredient>()
 
-    override fun processLine(result: ParsedRecipe, node: Node): ParsedRecipe {
+    override fun processChildNode(result: ParsedRecipe, node: Node): ParsedRecipe {
         if (node is BulletList) {
             for (item in node.children) {
                 val ingredient = ingredientParser.parse(item.childChars.trim().toString())
