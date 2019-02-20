@@ -1,30 +1,28 @@
 # Zimtschnecken mit Frischkäseguss
 
 ## Zutaten
-
 ### Teig
-- 2 Cups Warm Milk (450ml)
-- 1/2 Cup Zucker (100g)
-- 1/2 Cup geschmolzene Butter (125g)
-- 2 Tsp Trockenhefe (7g, 1 Pack)
-- 5 Cups Flour (625g)
-- 1 Tsp Backpulver
-- 2 Tsp Salz
+* 450ml warme Milch
+* 100g Zucker
+* 125g geschmolzene Butter
+* 2 TL Trockenhefe
+* 625g Mehl
+* 1 TL Backpulver
+* 2 TL Salz
 
 ### Füllung
-- 3/4 Cup Light Brown Sugar (150g)
-- 3/4 Cup softened Butter (170g)
-- 2 Tbsp Zimt
+* 150g brauner Zucker
+* 170g weiche Butter
+* 2 EL Zimt
 
 ### Zuckerguss
-- 4 ounces cream cheese, softened (125g)
-- 2 Tbsp geschmolzene Butter (30g)
-- 4 Tbsp. Milch (60ml)
-- 1 Tsp. Vanilla Extract
-- 1 cup Puderzucker (125g) 
+* 125g Doppelrahm Frischkäse
+* 30g geschmolzene Butter
+* 60ml Milch
+* 1 TL Vanilla Extract
+* 125g Puderzucker
 
 ## Zubereitung
-
 ### Teig
 1. Milch, Zucker, Butter und Hefe vermischen. 10 Minuten gären lassen.
 2. 500g des Mehls hinzugeben und verrühren.

@@ -1,10 +1,12 @@
 package de.jgroeneveld.koma.recipes.entity
 
 data class Recipe(
+        val title: String,
+        val description: String,
+        val ingredients: String,
+        val steps: String,
+
         val id: String,
-        val ingredients: Iterable<Ingredient>,
-        val steps: Iterable<String>,
-        val text: String,
-        val tags: Iterable<String>,
-        val title: String
+        val ingredientsList: Iterable<Ingredient>,
+        val tags: Iterable<String>
 )

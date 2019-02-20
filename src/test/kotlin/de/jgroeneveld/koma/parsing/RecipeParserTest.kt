@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions
 import org.junit.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.io.ClassPathResource
-import java.io.File
 import java.io.Reader
 import java.io.StringReader
 
@@ -21,15 +20,15 @@ class RecipeParserTest {
         val parsedRecipe = RecipeParser().parse(reader)
 
         Assertions.assertThat(parsedRecipe.title).isEqualTo("Brot")
-        Assertions.assertThat(parsedRecipe.descriptionMd).isEqualTo("Ein leckeres Brot")
-        Assertions.assertThat(parsedRecipe.ingredientsMd).isEqualTo("- 250g Mehl\n" +
+        Assertions.assertThat(parsedRecipe.description).isEqualTo("Ein leckeres Brot")
+        Assertions.assertThat(parsedRecipe.ingredients).isEqualTo("- 250g Mehl\n" +
                 "- 3 Eier")
-        Assertions.assertThat(parsedRecipe.stepsMd).isEqualTo("1. Mischen\n" +
+        Assertions.assertThat(parsedRecipe.steps).isEqualTo("1. Mischen\n" +
                 "2. Backen")
 
-        Assertions.assertThat(parsedRecipe.ingredients).hasSize(2)
-        Assertions.assertThat(parsedRecipe.ingredients).contains(Ingredient(250F, Quantity.G, "Mehl"))
-        Assertions.assertThat(parsedRecipe.ingredients).contains(Ingredient(3F, Quantity.Pieces, "Eier"))
+        Assertions.assertThat(parsedRecipe.ingredientsList).hasSize(2)
+        Assertions.assertThat(parsedRecipe.ingredientsList).contains(Ingredient(250F, Quantity.G, "Mehl"))
+        Assertions.assertThat(parsedRecipe.ingredientsList).contains(Ingredient(3F, Quantity.Pieces, "Eier"))
     }
 
     @Test
@@ -40,8 +39,8 @@ class RecipeParserTest {
         val parsedRecipe = RecipeParser().parse(inputStream.reader())
 
         Assertions.assertThat(parsedRecipe.title).isEqualTo("Mildes Chilliöl")
-        Assertions.assertThat(parsedRecipe.descriptionMd).isEqualTo("Ein aromatisches, mildes Chilliöl. Auch sehr gut zum Dippen.")
-        Assertions.assertThat(parsedRecipe.ingredients).isEqualTo(listOf(
+        Assertions.assertThat(parsedRecipe.description).isEqualTo("Ein aromatisches, mildes Chilliöl. Auch sehr gut zum Dippen.")
+        Assertions.assertThat(parsedRecipe.ingredientsList).isEqualTo(listOf(
                 Ingredient(200F, Quantity.Ml, "neutrales Öl"),
                 Ingredient(50F, Quantity.Ml, "Sesamöl"),
                 Ingredient(4F, Quantity.Pieces, "Sternanis"),

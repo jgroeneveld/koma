@@ -23,8 +23,8 @@ class IngredientsBlockParser : NamedBlockParser(headingText = "Zutaten") {
 
     override fun processFullBlock(result: ParsedRecipe, fullBlock: String): ParsedRecipe {
         return result.copy(
-                ingredientsMd = fullBlock,
-                ingredients = parsedIngredients
+                ingredients = fullBlock,
+                ingredientsList = parsedIngredients
         )
     }
 }

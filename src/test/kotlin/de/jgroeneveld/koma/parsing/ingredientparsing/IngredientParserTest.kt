@@ -1,6 +1,7 @@
 package de.jgroeneveld.koma.parsing.ingredientparsing
 
 import de.jgroeneveld.koma.parsing.ingredientparsing.IngredientParser
+import de.jgroeneveld.koma.recipes.control.RecipeRepository
 import de.jgroeneveld.koma.recipes.entity.Quantity
 import org.assertj.core.api.Assertions
 import org.junit.Test

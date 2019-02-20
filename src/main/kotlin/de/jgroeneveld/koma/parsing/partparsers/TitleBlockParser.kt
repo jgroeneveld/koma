@@ -14,6 +14,6 @@ class TitleBlockParser : BlockParser() {
     }
 
     override fun processFullBlock(result: ParsedRecipe, fullBlock: String): ParsedRecipe {
-        return result.copy(descriptionMd = fullBlock)
+        return result.copy(description = fullBlock)
     }
 }
