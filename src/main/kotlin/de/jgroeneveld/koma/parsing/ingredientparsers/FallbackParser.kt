@@ -1,6 +1,5 @@
-package de.jgroeneveld.koma.parsing.ingredientparsing
+package de.jgroeneveld.koma.parsing.ingredientparsers
 
-import de.jgroeneveld.koma.parsing.ingredientparsing.LineParser
 import de.jgroeneveld.koma.recipes.entity.Ingredient
 import de.jgroeneveld.koma.recipes.entity.Quantity
 

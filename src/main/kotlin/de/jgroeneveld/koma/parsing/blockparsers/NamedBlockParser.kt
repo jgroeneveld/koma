@@ -1,4 +1,4 @@
-package de.jgroeneveld.koma.parsing.partparsers
+package de.jgroeneveld.koma.parsing.blockparsers
 
 import com.vladsch.flexmark.ast.Heading
 import com.vladsch.flexmark.util.ast.Node

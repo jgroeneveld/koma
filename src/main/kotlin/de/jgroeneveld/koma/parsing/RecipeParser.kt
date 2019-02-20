@@ -2,10 +2,10 @@ package de.jgroeneveld.koma.parsing
 
 import com.vladsch.flexmark.parser.Parser
 import com.vladsch.flexmark.util.options.MutableDataSet
-import de.jgroeneveld.koma.parsing.partparsers.IngredientsBlockParser
-import de.jgroeneveld.koma.parsing.partparsers.BlockParser
-import de.jgroeneveld.koma.parsing.partparsers.StepsBlockParser
-import de.jgroeneveld.koma.parsing.partparsers.TitleBlockParser
+import de.jgroeneveld.koma.parsing.blockparsers.IngredientsBlockParser
+import de.jgroeneveld.koma.parsing.blockparsers.BlockParser
+import de.jgroeneveld.koma.parsing.blockparsers.StepsBlockParser
+import de.jgroeneveld.koma.parsing.blockparsers.TitleBlockParser
 import java.io.Reader
 
 class RecipeParser {

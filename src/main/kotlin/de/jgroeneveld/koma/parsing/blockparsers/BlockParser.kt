@@ -1,4 +1,4 @@
-package de.jgroeneveld.koma.parsing.partparsers
+package de.jgroeneveld.koma.parsing.blockparsers
 
 import com.vladsch.flexmark.ast.Heading
 import com.vladsch.flexmark.util.ast.Node
@@ -12,32 +12,32 @@ abstract class BlockParser {
 
     // parse parses the node and iterates until it finds a headline with PART_HEADING_LEVEL
     // Returns the next finished data and next Node.
-    fun parse(result: ParsedRecipe, startNode: Node): Pair<ParsedRecipe, Node?> {
-        var recipe = processStartNode(result, startNode)
+    fun parse(recipe: ParsedRecipe, startNode: Node): Pair<ParsedRecipe, Node?> {
+        var resultRecipe = processStartNode(recipe, startNode)
 
         var node: Node? = startNode.next
         var blockText = ""
 
         while (node != null && !(node is Heading && node.level <= PART_HEADING_LEVEL)) {
             blockText += "${node.chars}\n"
-            recipe = processChildNode(recipe, node)
+            resultRecipe = processChildNode(resultRecipe, node)
             node = node.next
         }
 
-        recipe = processFullBlock(recipe, blockText.trim())
+        resultRecipe = processFullBlock(resultRecipe, blockText.trim())
 
-        return Pair(recipe, node)
+        return Pair(resultRecipe, node)
     }
 
-    open fun processStartNode(result: ParsedRecipe, node: Node): ParsedRecipe {
-        return result
+    open fun processStartNode(recipe: ParsedRecipe, node: Node): ParsedRecipe {
+        return recipe
     }
 
-    open fun processChildNode(result: ParsedRecipe, node: Node): ParsedRecipe {
-        return result
+    open fun processChildNode(recipe: ParsedRecipe, node: Node): ParsedRecipe {
+        return recipe
     }
 
-    open fun processFullBlock(result: ParsedRecipe, fullBlock: String): ParsedRecipe {
-        return result
+    open fun processFullBlock(recipe: ParsedRecipe, fullBlock: String): ParsedRecipe {
+        return recipe
     }
 }
