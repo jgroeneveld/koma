@@ -1,5 +1,6 @@
 package de.jgroeneveld.koma.recipes.boundary
 
+import de.jgroeneveld.koma.parsing.RecipeParser
 import de.jgroeneveld.koma.recipes.control.RecipeRepository
 import de.jgroeneveld.koma.recipes.entity.Recipe
 import org.springframework.web.bind.annotation.GetMapping
