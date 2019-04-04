@@ -2,7 +2,7 @@ package de.jgroeneveld.koma.parsing.ingredientparsers
 
 import de.jgroeneveld.koma.recipes.entity.Quantity
 import org.assertj.core.api.Assertions
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class IngredientParserTest {
     val parser = IngredientParser()

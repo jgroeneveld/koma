@@ -3,7 +3,7 @@ package de.jgroeneveld.koma.parsing
 import de.jgroeneveld.koma.recipes.entity.Ingredient
 import de.jgroeneveld.koma.recipes.entity.Quantity
 import org.assertj.core.api.Assertions
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.io.ClassPathResource
 import java.io.Reader
@@ -33,7 +33,7 @@ class RecipeParserTest {
 
     @Test
     fun parseFile() {
-        val resource = ClassPathResource("chilli_oil.md")
+        val resource = ClassPathResource("recipes/chilli_oil.md")
         val inputStream = resource.inputStream
 
         val parsedRecipe = RecipeParser().parse(inputStream.reader())
