@@ -1,6 +1,7 @@
 package de.jgroeneveld.koma.mealplanning
 
 import org.assertj.core.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -16,6 +17,7 @@ class MealplanFactoryTest {
     }
 
     @Test
+    @Disabled("pending")
     fun `creates different plans each time`() {
         val planA = mealplanFactory.create(1)
         val planB = mealplanFactory.create(1)
