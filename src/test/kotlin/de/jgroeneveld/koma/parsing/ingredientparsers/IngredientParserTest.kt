@@ -10,7 +10,7 @@ class IngredientParserTest {
     val parser = IngredientParser()
 
     @Test
-    fun parseLiter() {
+    fun `parse Liter`() {
         val line = "51L Wasser"
 
         val ingredient = parser.parse(line)
@@ -21,7 +21,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseMl() {
+    fun `parse Ml`() {
         val line = "50ml Water"
 
         val ingredient = parser.parse(line)
@@ -32,7 +32,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseGrams() {
+    fun `parse Grams`() {
         val line = "50g Mehl"
 
         val ingredient = parser.parse(line)
@@ -43,7 +43,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseKilograms() {
+    fun `parse Kilograms`() {
         val line = "1 Kg Mehl"
 
         val ingredient = parser.parse(line)
@@ -54,7 +54,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseTeaspoons() {
+    fun `parse Teaspoons`() {
         val line = "2 Tl Hefe"
 
         val ingredient = parser.parse(line)
@@ -65,7 +65,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseHalfTeaspoons() {
+    fun `parse half teaspoons`() {
         val line = "1/2 Tl Hefe"
 
         val ingredient = parser.parse(line)
@@ -76,7 +76,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseTablespoons() {
+    fun `parse tablespoons`() {
         val line = "3El Zucker"
 
         val ingredient = parser.parse(line)
@@ -87,7 +87,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parsPieces() {
+    fun `pars pieces`() {
         val line = "3 Äpfel"
 
         val ingredient = parser.parse(line)
@@ -98,7 +98,7 @@ class IngredientParserTest {
     }
 
     @Test
-    fun parseWithMissingQuantity() {
+    fun `parse with missing quantity`() {
         val line = "Zucker"
 
         val ingredient = parser.parse(line)

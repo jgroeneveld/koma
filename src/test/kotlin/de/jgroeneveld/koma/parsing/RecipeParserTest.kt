@@ -33,7 +33,7 @@ class RecipeParserTest {
     }
 
     @Test
-    fun parseFile() {
+    fun `parse File`() {
         val resource = ClassPathResource("recipes/chilli_oil.md")
         val inputStream = resource.inputStream
 
