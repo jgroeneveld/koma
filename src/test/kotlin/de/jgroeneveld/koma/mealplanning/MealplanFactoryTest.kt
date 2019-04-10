@@ -13,14 +13,6 @@ class MealplanFactoryTest {
 
     @Test
     fun `creates plans with number given`() {
-        Assertions.assertThat(mealplanFactory.create(recipeCount = 2)).hasSize(2)
-    }
-
-    @Test
-    @Disabled("pending")
-    fun `creates different plans each time`() {
-        val planA = mealplanFactory.create(1)
-        val planB = mealplanFactory.create(1)
-        Assertions.assertThat(planA.first()).isNotEqualTo(planB.first())
+        Assertions.assertThat(mealplanFactory.create(recipeCount = 2).recipes).hasSize(2)
     }
 }

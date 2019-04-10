@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service
 class MealplanFactory(
         val recipeRepository: RecipeRepository
 ) {
-    fun create(recipeCount: Int): Iterable<Recipe> {
-        return recipeRepository.findAll().shuffled().take(recipeCount)
+    fun create(recipeCount: Int): Mealplan {
+        val recipes = recipeRepository.findAll().shuffled().take(recipeCount)
+        return Mealplan(recipes)
     }
 }
