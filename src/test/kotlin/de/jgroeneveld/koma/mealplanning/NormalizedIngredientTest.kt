@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
@@ -38,25 +39,19 @@ internal class NormalizedIngredientTest {
         }
 
         @Test
-        @Disabled("pending")
         fun `differing quantity units`() {
             val a = NormalizedIngredient("Mehl", NormalizedQuantity(50F, NormalizedQuantityUnit.G))
             val b = NormalizedIngredient("Mehl", NormalizedQuantity(0F, NormalizedQuantityUnit.Unknown))
 
-            val c = a.combine(b)
-
-            // TODO: some sort of incompatible info
+            Assertions.assertThatThrownBy { a.combine(b) }.isInstanceOf(IllegalArgumentException::class.java)
         }
 
         @Test
-        @Disabled("pending")
         fun `differing names`() {
             val a = NormalizedIngredient("Mehl", NormalizedQuantity(50F, NormalizedQuantityUnit.G))
             val b = NormalizedIngredient("Zucker", NormalizedQuantity(100F, NormalizedQuantityUnit.G))
 
-            val c = a.combine(b)
-
-            // TODO: some sort of incompatible info
+            Assertions.assertThatThrownBy { a.combine(b) }.isInstanceOf(IllegalArgumentException::class.java)
         }
     }
 

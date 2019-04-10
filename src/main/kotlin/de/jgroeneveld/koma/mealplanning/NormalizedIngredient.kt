@@ -24,8 +24,7 @@ data class NormalizedIngredient(
 ) {
     fun combine(other: NormalizedIngredient): NormalizedIngredient {
         if (!this.isCompatibleWith(other)) {
-            // TODO: better error handling
-            return NormalizedIngredient("TODO", NormalizedQuantity(0F, NormalizedQuantityUnit.G))
+            throw IllegalArgumentException("Ingredients not compatible")
         }
 
         return copy(
