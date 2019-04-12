@@ -1,4 +1,4 @@
-package de.jgroeneveld.koma.mealplanning
+package de.jgroeneveld.koma.mealplans.entity
 
 import de.jgroeneveld.koma.values.Ingredient
 
@@ -11,11 +11,11 @@ data class ShoppingList(
         fun add(ingredient: Ingredient): Builder {
             val normalizedIngredient = normalizeIngredient(ingredient)
 
-            val existingIngredient = findIngredient(normalizedIngredient)
+            val compatibleIngredient = findCompatible(normalizedIngredient)
 
-            if (existingIngredient != null) {
-                normalizedIngredients.remove(existingIngredient)
-                normalizedIngredients.add(normalizedIngredient.combine(existingIngredient))
+            if (compatibleIngredient != null) {
+                normalizedIngredients.remove(compatibleIngredient)
+                normalizedIngredients.add(normalizedIngredient.combine(compatibleIngredient))
             } else {
                 normalizedIngredients.add(normalizedIngredient)
             }
@@ -23,7 +23,7 @@ data class ShoppingList(
             return this
         }
 
-        private fun findIngredient(ingredient: NormalizedIngredient): NormalizedIngredient? {
+        private fun findCompatible(ingredient: NormalizedIngredient): NormalizedIngredient? {
             return normalizedIngredients.find { it.isCompatibleWith(ingredient) }
         }
 

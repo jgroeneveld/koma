@@ -1,7 +1,7 @@
-package de.jgroeneveld.koma.mealplanning
+package de.jgroeneveld.koma.mealplans.control
 
+import de.jgroeneveld.koma.mealplans.entity.Mealplan
 import de.jgroeneveld.koma.recipes.control.RecipeRepository
-import de.jgroeneveld.koma.recipes.entity.Recipe
 import org.springframework.stereotype.Service
 
 @Service

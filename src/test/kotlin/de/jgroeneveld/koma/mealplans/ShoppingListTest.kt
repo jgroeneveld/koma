@@ -1,5 +1,6 @@
-package de.jgroeneveld.koma.mealplanning
+package de.jgroeneveld.koma.mealplans
 
+import de.jgroeneveld.koma.mealplans.entity.ShoppingList
 import de.jgroeneveld.koma.values.Ingredient
 import de.jgroeneveld.koma.values.Quantity
 import de.jgroeneveld.koma.values.QuantityUnit

@@ -1,6 +1,5 @@
-package de.jgroeneveld.koma.mealplanning
+package de.jgroeneveld.koma.mealplans.entity
 
-import de.jgroeneveld.koma.values.Ingredient
 import de.jgroeneveld.koma.recipes.entity.Recipe
 
 data class Mealplan(

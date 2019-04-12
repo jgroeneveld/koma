@@ -1,14 +1,12 @@
-package de.jgroeneveld.koma.mealplanning
+package de.jgroeneveld.koma.mealplans
 
+import de.jgroeneveld.koma.mealplans.entity.*
 import de.jgroeneveld.koma.values.Ingredient
 import de.jgroeneveld.koma.values.Quantity
 import de.jgroeneveld.koma.values.QuantityUnit
 import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
-import org.springframework.boot.test.context.SpringBootTest
 
 internal class NormalizedIngredientTest {
     @Nested
