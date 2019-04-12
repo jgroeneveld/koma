@@ -6,9 +6,7 @@ import de.jgroeneveld.koma.values.QuantityUnit
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
 internal class ShoppingListTest {
     val builder = ShoppingList.Builder()
 

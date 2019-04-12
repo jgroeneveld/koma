@@ -9,19 +9,17 @@ data class MealplanResponse(
         val shoppingList: ShoppingList
 )
 
-fun mealplanResponseFrom(mealplan: Mealplan): MealplanResponse {
-    return MealplanResponse(
-            recipes = mealplan.recipes,
-            shoppingList = mealplan.shoppingList()
-    )
-}
-
 @RestController
 class MealplanController(
         val mealplanFactory: MealplanFactory
 ) {
     @GetMapping("/api/mealplans")
     fun test(): MealplanResponse {
-        return mealplanResponseFrom(mealplanFactory.create(3))
+        val mealplan = mealplanFactory.create(3)
+
+        return MealplanResponse(
+                recipes = mealplan.recipes,
+                shoppingList = mealplan.shoppingList()
+        )
     }
 }

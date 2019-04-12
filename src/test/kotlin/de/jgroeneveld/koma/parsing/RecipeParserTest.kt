@@ -5,12 +5,10 @@ import de.jgroeneveld.koma.values.Quantity
 import de.jgroeneveld.koma.values.QuantityUnit
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.io.ClassPathResource
 import java.io.Reader
 import java.io.StringReader
 
-@SpringBootTest
 class RecipeParserTest {
     @Test
     fun parse() {
