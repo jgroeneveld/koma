@@ -1,5 +1,7 @@
 package de.jgroeneveld.koma.recipes.entity
 
+import de.jgroeneveld.koma.values.Ingredient
+
 data class Recipe(
         val title: String,
         val description: String,

@@ -1,15 +1,14 @@
 package de.jgroeneveld.koma.parsing
 
-import de.jgroeneveld.koma.recipes.entity.Ingredient
-import de.jgroeneveld.koma.recipes.entity.Quantity
+import de.jgroeneveld.koma.values.Ingredient
+import de.jgroeneveld.koma.values.Quantity
+import de.jgroeneveld.koma.values.QuantityUnit
 import org.assertj.core.api.Assertions
-import org.junit.Test
-import org.springframework.boot.test.context.SpringBootTest
+import org.junit.jupiter.api.Test
 import org.springframework.core.io.ClassPathResource
 import java.io.Reader
 import java.io.StringReader
 
-@SpringBootTest
 class RecipeParserTest {
     @Test
     fun parse() {
@@ -27,13 +26,13 @@ class RecipeParserTest {
                 "2. Backen")
 
         Assertions.assertThat(parsedRecipe.ingredientsList).hasSize(2)
-        Assertions.assertThat(parsedRecipe.ingredientsList).contains(Ingredient(250F, Quantity.G, "Mehl"))
-        Assertions.assertThat(parsedRecipe.ingredientsList).contains(Ingredient(3F, Quantity.Pieces, "Eier"))
+        Assertions.assertThat(parsedRecipe.ingredientsList).contains(Ingredient("Eier", Quantity(3F, QuantityUnit.Pieces)))
+        Assertions.assertThat(parsedRecipe.ingredientsList).contains(Ingredient("Mehl", Quantity(250F, QuantityUnit.G)))
     }
 
     @Test
-    fun parseFile() {
-        val resource = ClassPathResource("chilli_oil.md")
+    fun `parse File`() {
+        val resource = ClassPathResource("recipes/chilli_oil.md")
         val inputStream = resource.inputStream
 
         val parsedRecipe = RecipeParser().parse(inputStream.reader())
@@ -41,14 +40,14 @@ class RecipeParserTest {
         Assertions.assertThat(parsedRecipe.title).isEqualTo("Mildes Chilliöl")
         Assertions.assertThat(parsedRecipe.description).isEqualTo("Ein aromatisches, mildes Chilliöl. Auch sehr gut zum Dippen.")
         Assertions.assertThat(parsedRecipe.ingredientsList).isEqualTo(listOf(
-                Ingredient(200F, Quantity.Ml, "neutrales Öl"),
-                Ingredient(50F, Quantity.Ml, "Sesamöl"),
-                Ingredient(4F, Quantity.Pieces, "Sternanis"),
-                Ingredient(2F, Quantity.Tsp, "Szechuan Pfefer"),
-                Ingredient(2F, Quantity.Pieces, "Knoblauchzehen"),
-                Ingredient(4F, Quantity.Pieces, "Lorbeer"),
-                Ingredient(3F, Quantity.Tbsp, "Chilliflocken"),
-                Ingredient(1 / 2F, Quantity.Tsp, "Salz")
+                Ingredient("neutrales Öl", Quantity(200F, QuantityUnit.Ml)),
+                Ingredient("Sesamöl", Quantity(50F, QuantityUnit.Ml)),
+                Ingredient("Sternanis", Quantity(4F, QuantityUnit.Pieces)),
+                Ingredient("Szechuan Pfefer", Quantity(2F, QuantityUnit.Tsp)),
+                Ingredient("Knoblauchzehen", Quantity(2F, QuantityUnit.Pieces)),
+                Ingredient("Lorbeer", Quantity(4F, QuantityUnit.Pieces)),
+                Ingredient("Chilliflocken", Quantity(3F, QuantityUnit.Tbsp)),
+                Ingredient("Salz", Quantity(1 / 2F, QuantityUnit.Tsp))
         ))
 
         inputStream.close()

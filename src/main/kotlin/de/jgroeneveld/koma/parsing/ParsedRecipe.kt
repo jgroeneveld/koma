@@ -1,6 +1,6 @@
 package de.jgroeneveld.koma.parsing
 
-import de.jgroeneveld.koma.recipes.entity.Ingredient
+import de.jgroeneveld.koma.values.Ingredient
 
 data class ParsedRecipe(
         val title: String = "",

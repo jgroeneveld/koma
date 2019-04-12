@@ -1,18 +1,19 @@
 package de.jgroeneveld.koma.parsing.ingredientparsers
 
-import de.jgroeneveld.koma.recipes.entity.Ingredient
-import de.jgroeneveld.koma.recipes.entity.Quantity
+import de.jgroeneveld.koma.values.Ingredient
+import de.jgroeneveld.koma.values.QuantityUnit
 
 class IngredientParser {
     fun parse(line: String): Ingredient {
+        // TODO: i18n
         val parsers = listOf(
-                UnitLineParser("ml", Quantity.Ml),
-                UnitLineParser("l", Quantity.L),
-                UnitLineParser("g", Quantity.G),
-                UnitLineParser("kg", Quantity.Kg),
-                UnitLineParser("el", Quantity.Tbsp), // TODO: i18n
-                UnitLineParser("tl", Quantity.Tsp), // TODO: i18n
-                UnitLineParser("", Quantity.Pieces),
+                UnitLineParser("ml", QuantityUnit.Ml),
+                UnitLineParser("l", QuantityUnit.L),
+                UnitLineParser("g", QuantityUnit.G),
+                UnitLineParser("kg", QuantityUnit.Kg),
+                UnitLineParser("el", QuantityUnit.Tbsp),
+                UnitLineParser("tl", QuantityUnit.Tsp),
+                UnitLineParser("", QuantityUnit.Pieces),
                 FallbackParser()
         )
 

@@ -1,9 +1,10 @@
 package de.jgroeneveld.koma.parsing.ingredientparsers
 
-import de.jgroeneveld.koma.recipes.entity.Ingredient
-import de.jgroeneveld.koma.recipes.entity.Quantity
+import de.jgroeneveld.koma.values.Ingredient
+import de.jgroeneveld.koma.values.Quantity
+import de.jgroeneveld.koma.values.QuantityUnit
 
-class UnitLineParser(val unit: String, val quantity: Quantity): LineParser() {
+class UnitLineParser(val unit: String, val quantity: QuantityUnit): LineParser() {
     val regex = Regex("""(\d+|\d\/\d)\s*$unit\s+(.*)""", RegexOption.IGNORE_CASE)
 
     override fun matches(line: String): Boolean {
@@ -16,7 +17,7 @@ class UnitLineParser(val unit: String, val quantity: Quantity): LineParser() {
         val amount = convertAmountToFloat(matchResult.groups[1]!!.value)
         val name = matchResult.groups[2]!!.value
 
-        return Ingredient(amount, quantity, name)
+        return Ingredient(name = name, quantity = Quantity(amount, quantity))
     }
 
     private fun convertAmountToFloat(amount: String): Float {

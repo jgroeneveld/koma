@@ -1,108 +1,110 @@
 package de.jgroeneveld.koma.parsing.ingredientparsers
 
-import de.jgroeneveld.koma.recipes.entity.Quantity
+import de.jgroeneveld.koma.values.Ingredient
+import de.jgroeneveld.koma.values.Quantity
+import de.jgroeneveld.koma.values.QuantityUnit
 import org.assertj.core.api.Assertions
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class IngredientParserTest {
     val parser = IngredientParser()
 
     @Test
-    fun parseLiter() {
+    fun `parse Liter`() {
         val line = "51L Wasser"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(51F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.L)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(51F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.L)
         Assertions.assertThat(ingredient.name).isEqualTo("Wasser")
     }
 
     @Test
-    fun parseMl() {
+    fun `parse Ml`() {
         val line = "50ml Water"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(50F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Ml)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(50F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Ml)
         Assertions.assertThat(ingredient.name).isEqualTo("Water")
     }
 
     @Test
-    fun parseGrams() {
+    fun `parse Grams`() {
         val line = "50g Mehl"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(50F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.G)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(50F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.G)
         Assertions.assertThat(ingredient.name).isEqualTo("Mehl")
     }
 
     @Test
-    fun parseKilograms() {
+    fun `parse Kilograms`() {
         val line = "1 Kg Mehl"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(1F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Kg)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(1F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Kg)
         Assertions.assertThat(ingredient.name).isEqualTo("Mehl")
     }
 
     @Test
-    fun parseTeaspoons() {
+    fun `parse Teaspoons`() {
         val line = "2 Tl Hefe"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(2F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Tsp)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(2F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Tsp)
         Assertions.assertThat(ingredient.name).isEqualTo("Hefe")
     }
 
     @Test
-    fun parseHalfTeaspoons() {
+    fun `parse half teaspoons`() {
         val line = "1/2 Tl Hefe"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(0.5F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Tsp)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(0.5F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Tsp)
         Assertions.assertThat(ingredient.name).isEqualTo("Hefe")
     }
 
     @Test
-    fun parseTablespoons() {
+    fun `parse tablespoons`() {
         val line = "3El Zucker"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(3F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Tbsp)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(3F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Tbsp)
         Assertions.assertThat(ingredient.name).isEqualTo("Zucker")
     }
 
     @Test
-    fun parsPieces() {
+    fun `pars pieces`() {
         val line = "3 Äpfel"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isEqualTo(3F)
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Pieces)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(3F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Pieces)
         Assertions.assertThat(ingredient.name).isEqualTo("Äpfel")
     }
 
     @Test
-    fun parseWithMissingQuantity() {
+    fun `parse with missing quantity`() {
         val line = "Zucker"
 
         val ingredient = parser.parse(line)
 
-        Assertions.assertThat(ingredient.Amount).isNull()
-        Assertions.assertThat(ingredient.quantity).isEqualTo(Quantity.Pieces)
+        Assertions.assertThat(ingredient.quantity.amount).isEqualTo(0F)
+        Assertions.assertThat(ingredient.quantity.unit).isEqualTo(QuantityUnit.Unknown)
         Assertions.assertThat(ingredient.name).isEqualTo("Zucker")
     }
 

@@ -4,7 +4,7 @@ import com.vladsch.flexmark.ast.BulletList
 import com.vladsch.flexmark.util.ast.Node
 import de.jgroeneveld.koma.parsing.ParsedRecipe
 import de.jgroeneveld.koma.parsing.ingredientparsers.IngredientParser
-import de.jgroeneveld.koma.recipes.entity.Ingredient
+import de.jgroeneveld.koma.values.Ingredient
 
 class IngredientsBlockParser : NamedBlockParser(headingText = "Zutaten") {
     val ingredientParser = IngredientParser()
