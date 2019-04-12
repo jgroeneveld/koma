@@ -15,7 +15,7 @@ class MealplanController(
 ) {
     @GetMapping("/api/mealplans")
     fun test(): MealplanResponse {
-        val mealplan = mealplanFactory.create(3)
+        val mealplan = mealplanFactory.create(5)
 
         return MealplanResponse(
                 recipes = mealplan.recipes,
